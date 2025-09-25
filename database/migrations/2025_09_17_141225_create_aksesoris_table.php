@@ -12,7 +12,11 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('aksesoris', function (Blueprint $table) {
-            $table->id();
+            $table->string('id_aksesoris')->primary();
+            $table->string('jenis');
+            $table->integer('jumlah');
+            $table->string('kondisi');
+            $table->string('status')->default('Tersedia');
             $table->timestamps();
         });
     }
