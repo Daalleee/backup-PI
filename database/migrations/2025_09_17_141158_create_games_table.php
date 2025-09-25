@@ -12,7 +12,11 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('games', function (Blueprint $table) {
-            $table->id();
+            $table->string('id_game')->primary();
+            $table->string('judul');
+            $table->string('platform');
+            $table->string('kondisi');
+            $table->string('status')->default('Tersedia');
             $table->timestamps();
         });
     }
