@@ -12,8 +12,16 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('transaksis', function (Blueprint $table) {
-            $table->id();
+            $table->string('id_transaksi')->primary();
+            $table->string('id_pelanggan');
+            $table->string('id_unit_game_aksesoris')->nullable();
+            $table->integer('durasi');
+            $table->double('biaya');
+            $table->dateTime('waktu_pengembalian')->nullable();
+            $table->string('status')->default('Sedang Disewa');
             $table->timestamps();
+            $table->softDeletes();
+            $table->foreign('id_pelanggan')->references('id_pelanggan')->on('users')->onDelete('cascade');
         });
     }
 
