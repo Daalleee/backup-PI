@@ -12,7 +12,11 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('unit_p_s', function (Blueprint $table) {
-            $table->id();
+            $table->string('id_unit')->primary();
+            $table->string('nomor_seri')->unique();
+            $table->string('tipe_ps');
+            $table->string('kondisi');
+            $table->string('status')->default('Tersedia');
             $table->timestamps();
         });
     }
